@@ -1,0 +1,9 @@
+{
+  "name": "covid19-statistics-app",
+  "version": "1.0.0",
+  "description": "Aplikasi Monitoring Data Statistik Covid-19",
+  "main": "app.js",
+  "scripts": {},
+  "author": "Rama Noor Rizki",
+  "license": "ISC"
+}
