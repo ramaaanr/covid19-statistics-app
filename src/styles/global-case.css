@@ -1,0 +1,25 @@
+.global-case {
+  padding: 30px;
+}
+
+.card {
+  min-width: 220px;
+  height: 150px;
+}
+
+.card-container {
+  justify-content: space-evenly;
+}
+
+.card-item {
+  margin: 0 15px;
+  background-color: #E8F9FD;
+  border: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .card-item {
+    width: 40vw;
+  }
+}
