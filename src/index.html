@@ -57,7 +57,7 @@
 
       </div>
 
-      <p class="last-update justify-self-end">Jumat. 9 september 2022</p>
+      <p id="global-last-update" class="last-update justify-self-end">Jumat. 9 september 2022</p>
     </div>
     <div class="country-case main-container d-flex justify-content-center align-items-center flex-column">
       <h2 class="fw-bold">Case by Country:</h2>
@@ -69,33 +69,32 @@
         </div>
         <button type="button" id="btn-search" class="btn btn-light"><i class="bi bi-search"></i></button>
       </div>
+      <div class="select-country-container  d-none">
+        <div class="card-container  d-flex align-items-center flex-column flex-md-row">
 
-      <div class="card-container d-flex align-items-center flex-column flex-md-row">
+          <div class="card card-item my-2 rounded-4 first-item shadow-sm">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+              <p class="stats fs-2">Confirmed</p>
+              <p class="count fs-3 fw-bold text-primary" id="country-confirmed"></p>
+            </div>
+          </div>
 
-        <div class="card card-item my-2 rounded-4 first-item shadow-sm">
-          <div class="card-body d-flex flex-column justify-content-center align-items-center">
-            <p class="stats fs-2">Confirmed</p>
-            <p class="count fs-3 fw-bold text-primary" id="country-confirmed"></p>
+          <div class="card card-item my-2 rounded-4 second-item shadow-sm">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+              <p class="stats fs-2">Recovered</p>
+              <p class="count fs-3 fw-bold text-success" id="country-recovered"></p>
+            </div>
+          </div>
+
+          <div class="card card-item my-2 rounded-4 third-item shadow-sm">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+              <p class="stats fs-2">Deaths</p>
+              <p class="count fs-3 fw-bold text-danger" id="country-deaths"></p>
+            </div>
           </div>
         </div>
-
-        <div class="card card-item my-2 rounded-4 second-item shadow-sm">
-          <div class="card-body d-flex flex-column justify-content-center align-items-center">
-            <p class="stats fs-2">Recovered</p>
-            <p class="count fs-3 fw-bold text-success" id="country-recovered"></p>
-          </div>
-        </div>
-
-        <div class="card card-item my-2 rounded-4 third-item shadow-sm">
-          <div class="card-body d-flex flex-column justify-content-center align-items-center">
-            <p class="stats fs-2">Deaths</p>
-            <p class="count fs-3 fw-bold text-danger" id="country-deaths"></p>
-          </div>
-        </div>
-
+        <p id="country-last-update" class="last-update d-flex justify-content-center">Jumat. 9 september 2022</p>
       </div>
-
-      <p class="last-update justify-self-end">Jumat. 9 september 2022</p>
     </div>
 
   </main>

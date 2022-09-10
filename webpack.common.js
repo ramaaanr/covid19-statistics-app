@@ -27,6 +27,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
+      moment: 'moment',
+      Swal: 'sweetalert2',
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
