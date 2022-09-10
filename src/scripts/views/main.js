@@ -7,23 +7,43 @@ const main = () => {
   renderGlobalCases();
   $('#btn-search').on('click', () => {
     $('.select-country-container').removeClass('d-none');
-    searchCountry();
+    renderCountryCases();
   });
 };
 
-const searchCountry = async () => {
-  const country = $('#select-country').val();
-  try {
-    const countryData = await getCountryData(country);
-    renderCountryCases(countryData);
-  } catch (error) {
-    Swal.fire({
-      icon: 'error',
-      title: error,
-      showConfirmButton: false,
-      text: 'Something went wrong! Please Try Again Later',
-    });
-  }
+const renderChart = (country) => {
+  $('#pie-chart').remove();
+  $('.chart-container').append(`<canvas id="pie-chart"></canvas>`);
+  const chart = $('#pie-chart');
+  const DATA_COUNT = 1;
+  const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+  const labels = ['Confirmed', 'Recovered', 'Deaths'];
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: `Covid-19 data for ${country.country}`,
+        data: [country.confirmed, country.recovered, country.deaths],
+        backgroundColor: ['#0dcaf0', '#198754', '#dc3545'],
+      },
+    ],
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+      },
+    },
+  };
+
+  new Chart(chart, config);
 };
 
 const renderGlobalCases = async () => {
@@ -46,13 +66,26 @@ const renderGlobalCases = async () => {
   }
 };
 
-const renderCountryCases = (countryData) => {
-  const lastUpdate = moment(countryData.lastUpdate).format('LLL');
+const renderCountryCases = async () => {
+  const country = $('#select-country').val();
+  try {
+    const countryData = await getCountryData(country);
+    const lastUpdate = moment(countryData.lastUpdate).format('LLL');
 
-  $('#country-confirmed').text(countryData.confirmed.toLocaleString('en-Us'));
-  $('#country-recovered').text(countryData.recovered.toLocaleString('en-Us'));
-  $('#country-deaths').text(countryData.deaths.toLocaleString('en-Us'));
-  $('#country-last-update').text(`Last Update: ${lastUpdate}`);
+    $('#country-confirmed').text(countryData.confirmed.toLocaleString('en-Us'));
+    $('#country-recovered').text(countryData.recovered.toLocaleString('en-Us'));
+    $('#country-deaths').text(countryData.deaths.toLocaleString('en-Us'));
+    $('#country-last-update').text(`Last Update: ${lastUpdate}`);
+    countryData.country = country;
+    renderChart(countryData);
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: error,
+      showConfirmButton: false,
+      text: 'Something went wrong! Please Try Again Later',
+    });
+  }
 };
 
 const renderSelectCountry = async () => {

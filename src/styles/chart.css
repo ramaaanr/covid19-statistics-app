@@ -1,0 +1,8 @@
+.chart-container {
+  width: 60vw;
+  height: 30vh;
+}
+
+#pie-chart {
+  margin: 50px 0;
+}
