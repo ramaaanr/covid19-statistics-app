@@ -5,9 +5,11 @@ import getGlobalData from '../services/get-global-data';
 const main = () => {
   renderSelectCountry();
   renderGlobalCases();
-  $('#btn-search').on('click', () => {
-    $('.select-country-container').removeClass('d-none');
-    renderCountryCases();
+  $('#select-country').on('change', () => {
+    if ($('#select-country').val() !== '---') {
+      $('.select-country-container').removeClass('d-none');
+      renderCountryCases();
+    }
   });
 };
 
@@ -49,13 +51,11 @@ const renderChart = (country) => {
 const renderGlobalCases = async () => {
   try {
     const globalData = await getGlobalData();
-
-    $('#global-confirmed').text(globalData.confirmed.toLocaleString('en-Us'));
-    $('#global-recovered').text(globalData.recovered.toLocaleString('en-Us'));
-    $('#global-deaths').text(globalData.deaths.toLocaleString('en-Us'));
-    const lastUpdate = moment(globalData.lastUpdate).format('LLL');
-
-    $('#global-last-update').text(`Last Update: ${lastUpdate}`);
+    globalData.confirmed = globalData.confirmed.toLocaleString();
+    globalData.deaths = globalData.deaths.toLocaleString();
+    globalData.recovered = globalData.recovered.toLocaleString();
+    globalData.lastUpdate = moment(globalData.lastUpdate).format('LLL');
+    document.querySelector('global-card-container').data = globalData;
   } catch (error) {
     Swal.fire({
       icon: 'error',
