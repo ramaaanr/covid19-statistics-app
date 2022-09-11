@@ -1,4 +1,4 @@
-class GlobalCardContainer extends HTMLElement {
+class CountryCardContainer extends HTMLElement {
   constructor() {
     super();
     this.shadowDOM = this.attachShadow({ mode: 'open' });
@@ -50,15 +50,15 @@ class GlobalCardContainer extends HTMLElement {
           font-weight: bold;
         }
 
-        #global-confirmed {
+        #country-confirmed {
           color: #007bff;
         }
 
-        #global-deaths {
+        #country-deaths {
           color: #dc3545;
         }
 
-        #global-recovered {
+        #country-recovered {
           color: #28a745;
         }
 
@@ -83,27 +83,27 @@ class GlobalCardContainer extends HTMLElement {
         <div class="card card-item ">
           <div class="card-body ">
             <p class="stats ">Confirmed</p>
-            <p class="count " id="global-confirmed">${this._data.confirmed}</p>
+            <p class="count " id="country-confirmed">${this._data.confirmed}</p>
           </div>
         </div>
 
         <div class="card card-item ">
           <div class="card-body ">
             <p class="stats ">Recovered</p>
-            <p class="count" id="global-recovered">${this._data.recovered}</p>
+            <p class="count" id="country-recovered">${this._data.recovered}</p>
           </div>
         </div>
 
         <div class="card card-item ">
           <div class="card-body ">
             <p class="stats ">Deaths</p>
-            <p class="count" id="global-deaths">${this._data.deaths}</p>
+            <p class="count" id="country-deaths">${this._data.deaths}</p>
           </div>
         </div>
         
       </div>
-      <p id="global-last-update" class="last-update">${this._data.lastUpdate}</p>
+      <p id="country-last-update" class="last-update">${this._data.lastUpdate}</p>
     `;
   }
 }
-customElements.define('global-card-container', GlobalCardContainer);
+customElements.define('country-card-container', CountryCardContainer);

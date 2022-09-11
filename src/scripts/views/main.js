@@ -7,13 +7,15 @@ const main = () => {
   renderGlobalCases();
   $('#select-country').on('change', () => {
     if ($('#select-country').val() !== '---') {
-      $('.select-country-container').removeClass('d-none');
+      $('country-card-container').removeClass('d-none');
+      $('.chart-container').removeClass('d-none');
       renderCountryCases();
     }
   });
 };
 
 const renderChart = (country) => {
+  console.log(country);
   $('#pie-chart').remove();
   $('.chart-container').append(`<canvas id="pie-chart"></canvas>`);
   const chart = $('#pie-chart');
@@ -70,14 +72,13 @@ const renderCountryCases = async () => {
   const country = $('#select-country').val();
   try {
     const countryData = await getCountryData(country);
-    const lastUpdate = moment(countryData.lastUpdate).format('LLL');
-
-    $('#country-confirmed').text(countryData.confirmed.toLocaleString('en-Us'));
-    $('#country-recovered').text(countryData.recovered.toLocaleString('en-Us'));
-    $('#country-deaths').text(countryData.deaths.toLocaleString('en-Us'));
-    $('#country-last-update').text(`Last Update: ${lastUpdate}`);
     countryData.country = country;
     renderChart(countryData);
+    countryData.confirmed = countryData.confirmed.toLocaleString();
+    countryData.deaths = countryData.deaths.toLocaleString();
+    countryData.recovered = countryData.recovered.toLocaleString();
+    countryData.lastUpdate = moment(countryData.lastUpdate).format('LLL');
+    document.querySelector('country-card-container').data = countryData;
   } catch (error) {
     Swal.fire({
       icon: 'error',

@@ -48,35 +48,10 @@
           <label for="select-country">Select Country</label>
         </div>
       </div>
-      <div class="select-country-container  d-none">
-        <div class="card-container  d-flex align-items-center flex-column flex-md-row">
+      <country-card-container class="d-none mt-2"></country-card-container>
 
-          <div class="card card-item my-2 rounded-4 first-item shadow-sm">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center">
-              <p class="stats fs-2">Confirmed</p>
-              <p class="count fs-3 fw-bold text-primary" id="country-confirmed"></p>
-            </div>
-          </div>
-
-          <div class="card card-item my-2 rounded-4 second-item shadow-sm">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center">
-              <p class="stats fs-2">Recovered</p>
-              <p class="count fs-3 fw-bold text-success" id="country-recovered"></p>
-            </div>
-          </div>
-
-          <div class="card card-item my-2 rounded-4 third-item shadow-sm">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center">
-              <p class="stats fs-2">Deaths</p>
-              <p class="count fs-3 fw-bold text-danger" id="country-deaths"></p>
-            </div>
-          </div>
-        </div>
-        <p id="country-last-update" class="last-update d-flex justify-content-center">Jumat. 9 september 2022</p>
-
-        <div class="chart-container">
-          <canvas id="pie-chart"></canvas>
-        </div>
+      <div class="chart-container d-none">
+        <canvas id="pie-chart"></canvas>
       </div>
     </div>
 
