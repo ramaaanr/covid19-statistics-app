@@ -1,30 +1,16 @@
+/* eslint-disable no-undef */
 import getCountries from '../services/get-countries';
 import getCountryData from '../services/get-country-data';
 import getGlobalData from '../services/get-global-data';
 
-const main = () => {
-  renderSelectCountry();
-  renderGlobalCases();
-  $('#select-country').on('change', () => {
-    if ($('#select-country').val() !== '---') {
-      $('country-card-container').removeClass('d-none');
-      $('.chart-container').removeClass('d-none');
-      renderCountryCases();
-    }
-  });
-};
-
 const renderChart = (country) => {
-  console.log(country);
   $('#pie-chart').remove();
-  $('.chart-container').append(`<canvas id="pie-chart"></canvas>`);
+  $('.chart-container').append('<canvas id="pie-chart"></canvas>');
   const chart = $('#pie-chart');
-  const DATA_COUNT = 1;
-  const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
 
   const labels = ['Confirmed', 'Recovered', 'Deaths'];
   const data = {
-    labels: labels,
+    labels,
     datasets: [
       {
         label: `Covid-19 data for ${country.country}`,
@@ -36,7 +22,7 @@ const renderChart = (country) => {
 
   const config = {
     type: 'bar',
-    data: data,
+    data,
     options: {
       responsive: true,
       plugins: {
@@ -47,7 +33,7 @@ const renderChart = (country) => {
     },
   };
 
-  new Chart(chart, config);
+  return new Chart(chart, config);
 };
 
 const renderGlobalCases = async () => {
@@ -104,6 +90,18 @@ const renderSelectCountry = async () => {
       text: 'Something went wrong! Please Try Again Later',
     });
   }
+};
+
+const main = () => {
+  renderSelectCountry();
+  renderGlobalCases();
+  $('#select-country').on('change', () => {
+    if ($('#select-country').val() !== '---') {
+      $('country-card-container').removeClass('d-none');
+      $('.chart-container').removeClass('d-none');
+      renderCountryCases();
+    }
+  });
 };
 
 export default main;

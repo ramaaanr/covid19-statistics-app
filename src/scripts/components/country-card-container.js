@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 class CountryCardContainer extends HTMLElement {
   constructor() {
     super();

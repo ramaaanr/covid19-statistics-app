@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 class GlobalCardContainer extends HTMLElement {
   constructor() {
     super();

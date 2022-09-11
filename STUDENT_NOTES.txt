@@ -1,0 +1,33 @@
+Aplikasi: Covid19 Statistics App
+Deskripsi: Menampilkan data dari kasus Covid-19 dari seluruh dunia
+Fitur: 
+ 1. Menampilkan data kasus Covid-19 secara global
+ 2. Menampilkan data kasus Covid-19 berdasarkan negara yang dipilih
+
+Pemenuhan persyaratan
+
+Kriteria:
+  - Menggunakan standar ES6 sintaks dalam menuliskan kode JavaScript pada proyek yang dibuat.
+  - Terdapat dua penerapan custom element. 
+  - Menggunakan Webpack sebagai module bundler (tahap produksi).
+  - Memanfaatkan Webpack sebagai environment dalam pengembangan proyek (tahap development).
+  - Memanfaatkan API dengan menggunakan konsep AJAX dalam menampilkan data yang dinamis pada aplikasi yang dibuat.
+  - Tema Aplikasi Covid-19 menggunakan API https://covid19.mathdro.id/api
+ Saran:
+  - Menerapkan tampilan aplikasi yang menarik:
+    ○ Pemilihan Warna dari Colorhunt (https://colorhunt.co/palette/ff1e00e8f9fd59ce8f000000) dan bootsrap color (https://getbootstrap.com/docs/5.2/utilities/colors/)
+    ○ Letak Elemen tidak menumpuk
+    ○ Penggunaan font dari Google Fonts (https://fonts.google.com/specimen/Roboto+Mono)
+    ○ Penerapan padding, margin yang pas
+    ○ Responsif pada seluruh ukuran layar perangkat
+  - Menggunakan package pihak ke-3 yang di-install melalui package manager (bukan CDN);
+    ○ jQuery
+    ○ Bootstrap
+    ○ SweetAlert2
+    ○ Moment.js
+  - Menuliskan kode dengan bersih dan konsisten. Anda bisa memanfaatkan Linter seperti ESLint dalam menjaga gaya penulisan kode.
+  - Bereksplorasi pada penerapan webpack;
+    ○ Menggunakan Loader seperti html-loader
+    ○ Menggunakan Plugin seperti css-minimizer-webpack-plugin, mini-css-extract-plugin, dan terser-webpack-plugin
+    
+    
